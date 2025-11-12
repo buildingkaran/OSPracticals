@@ -1,15 +1,8 @@
-# 🧠 OS Practical 1(a)
-# Topic: Using fork() where parent and child execute the same code
-# Author: Karan Kumar
-
 import os
 
-def main():
-    print("\n--- Practical 1(a): Same Program, Same Code ---")
-    pid = os.fork()  # Create a child process
+pid = os.fork()
 
-    # Both parent and child execute this part
-    print(f"Process ID: {os.getpid()}, Parent ID: {os.getppid()}")
-
-if __name__ == "__main__":
-    main()
+if pid == 0:
+    print(f"Child Process | PID: {os.getpid()} | Parent PID: {os.getppid()}")
+else:
+    print(f"Parent Process | PID: {os.getpid()} | Child PID: {pid}")
